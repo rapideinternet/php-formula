@@ -1,4 +1,3 @@
-{% from odict import odict %}
 {% set php = salt['pillar.get']('php:ng', {
     'lookup': salt['grains.filter_by']({
         'Debian': {
