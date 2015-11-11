@@ -141,9 +141,10 @@
         'defaults': {
             'PHP': {
                 'engine': 'On',
-                'short_open_tag': 'Off',
+                'short_open_tag': 'On',
                 'asp_tags': 'Off',
                 'precision': 14,
+		'y2k_compliance': 'On',
                 'output_buffering': 4096,
                 'zlib.output_compression': 'Off',
                 'implicit_flush': 'Off',
@@ -172,15 +173,19 @@
                 'request_order': 'GP',
                 'register_argc_argv': 'Off',
                 'auto_globals_jit': 'On',
-                'post_max_size': '8M',
+                'post_max_size': '512M',
+		'magic_quotes_gpc': 'Off',
+		'magic_quotes_runtime': 'Off',
+		'magic_quotes_sybase': 'Off',
                 'default_mimetype': '"text/html"',
                 'enable_dl': 'Off',
                 'file_uploads': 'On',
-                'upload_max_filesize': '2M',
+                'upload_max_filesize': '512M',
                 'max_file_uploads': 20,
                 'allow_url_fopen': 'On',
                 'allow_url_include': 'Off',
-                'default_socket_timeout': 60
+                'default_socket_timeout': 60,
+		'mail.add_x_header':'On'
             },
             'CLI Server': {
                 'cli_server.color': 'On'
@@ -193,6 +198,8 @@
             },
             'mail function': {
                 'SMTP': 'localhost',
+		'smtp_port':'25',
+		'sendmail_path': '/usr/local/rapidpanel/bin/mailfilter',
                 'mail.add_x_header': 'On'
             },
             'SQL': {
@@ -235,21 +242,6 @@
                 'mysqlnd.collect_statistics': 'On',
                 'mysqlnd.collect_memory_statistics': 'Off'
             },
-            'PostgreSQL': {
-                'pgsql.allow_persistent': 'On',
-                'pgsql.auto_reset_persistent': 'Off',
-                'pgsql.max_persistent': -1,
-                'pgsql.max_links': -1,
-                'pgsql.ignore_notice': 0,
-                'pgsql.log_notice': 0
-            },
-            'Sybase-CT': {
-                'sybct.allow_persistent': 'On',
-                'sybct.max_persistent': -1,
-                'sybct.max_links': -1,
-                'sybct.min_server_severity': 10,
-                'sybct.min_client_severity': 10
-            },
             'bcmath': {
                 'bcmath.scale': 0
             },
@@ -274,15 +266,6 @@
                 'session.hash_function': 0,
                 'session.hash_bits_per_character': 5,
                 'url_rewriter.tags': '"a=href,area=href,frame=src,input=src,form=fakeentry"'
-            },
-            'MSSQL': {
-                'mssql.allow_persistent': 'On',
-                'mssql.max_persistent': -1,
-                'mssql.max_links': -1,
-                'mssql.min_error_severity': 10,
-                'mssql.min_message_severity': 10,
-                'mssql.compatibility_mode': 'Off',
-                'mssql.secure_connection': 'Off'
             },
             'Tidy': {
                 'tidy.clean_output': 'Off'
